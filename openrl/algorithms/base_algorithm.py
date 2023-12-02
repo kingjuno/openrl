@@ -84,3 +84,13 @@ class BaseAlgorithm(ABC):
     def prep_rollout(self):
         for model in self.algo_module.models.values():
             model.eval()
+
+
+class HABaseAlgorithm(BaseAlgorithm):
+    """
+    Base Algorithm for Heterogeneous-Agent RL
+    """
+
+    @abstractmethod
+    def train(self, buffer, advantages, state_type):
+        raise NotImplementedError

@@ -25,12 +25,12 @@ import gym
 import torch
 
 from openrl.modules.common import BaseNet
-from openrl.modules.utils.valuenorm import ValueNorm
 from openrl.runners.common.base_agent import BaseAgent, SelfAgent
 from openrl.utils.callbacks import CallbackFactory
 from openrl.utils.callbacks.callbacks import BaseCallback, CallbackList, ConvertCallback
 from openrl.utils.callbacks.processbar_callback import ProgressBarCallback
 from openrl.utils.type_aliases import MaybeCallback
+from openrl.modules.utils.valuenorm import ValueNorm
 
 
 class RLAgent(BaseAgent):
@@ -95,13 +95,6 @@ class RLAgent(BaseAgent):
             self.exp_name = "rl"
         else:
             self.exp_name = self._cfg.experiment_name
-
-        self._use_valuenorm = self.cfg.use_valuenorm
-
-        if self._use_valuenorm:
-            self.value_normalizer = ValueNorm(1, device=self.device)
-        else:
-            self.value_normalizer = None
 
     @abstractmethod
     def train(

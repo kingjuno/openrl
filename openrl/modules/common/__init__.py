@@ -4,6 +4,7 @@ from .bc_net import BCNet
 from .ddpg_net import DDPGNet
 from .dqn_net import DQNNet
 from .gail_net import GAILNet
+from .happo_net import HAPPONet
 from .mat_net import MATNet
 from .ppo_net import PPONet
 from .sac_net import SACNet
@@ -20,4 +21,5 @@ __all__ = [
     "BCNet",
     "SACNet",
     "A2CNet",
+    "HAPPONet",
 ]
